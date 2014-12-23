@@ -24,11 +24,13 @@ $app = new Illuminate\Foundation\Application;
 |
 */
 
-$env = $app->detectEnvironment(array(
-
-	'local' => array('homestead'),
-
-));
+$env = $app->detectEnvironment(function() {
+    if (getenv('MER_ENV')) {
+        return getenv('MER_ENV');
+    } else {
+        return 'local'; // Default
+    }
+});
 
 /*
 |--------------------------------------------------------------------------
