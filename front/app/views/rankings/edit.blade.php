@@ -1,0 +1,1 @@
+/home/mer/front/app/views/rankings/edit.blade.php

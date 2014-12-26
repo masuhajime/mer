@@ -1,0 +1,1 @@
+/home/mer/front/app/views/records/index.blade.php
