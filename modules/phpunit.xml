@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit colors="true" bootstrap="../vendor/autoload.php">
-  <testsuite name="unit test for modules">
-    <directory>test</directory>
-  </testsuite>
+  <testsuites>
+    <testsuite name="Application Test Suite">
+      <directory suffix=".php">./test/</directory>
+    </testsuite>
+  </testsuites>
 </phpunit>

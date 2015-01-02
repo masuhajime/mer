@@ -16,7 +16,7 @@ class CreateRankingsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('application_id');
-			$table->string('title');
+			$table->string('name');
 			$table->timestamps();
 		});
 	}

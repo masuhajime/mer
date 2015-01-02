@@ -1,6 +1,7 @@
 <?php namespace Mer\Model;
 
 class Application extends \Eloquent {
+    use \Mer\Model\Eloquent\TraitExpandEloquent;
 
 	// Add your validation rules here
 	public static $rules = [
@@ -8,6 +9,6 @@ class Application extends \Eloquent {
 	];
 
 	// Don't forget to fill this array
-	protected $fillable = [];
+	protected $fillable = ['title'];
 
 }
