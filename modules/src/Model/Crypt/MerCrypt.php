@@ -20,11 +20,16 @@ abstract class MerCrypt {
             $total += ($i+1) * ord($raw[$i]);
         }
         $total = ($total % (self::$_DIFF + 1));
-         
+       //echo $total.PHP_EOL; 
+        
         for ($i = 0; $i < $length; ++$i) {
-            $salt_num = $salt_string[$i%$length_salt_string] + $total;//($total * ($i%10));
-            $crypted .= chr(self::rot_increase(ord($raw[$i]), $salt_num));
+            $salt_num = ord($salt_string[($i%$length_salt_string)]) + ($total * $i)%95;
+            $crypted_num = self::rot_increase(ord($raw[$i]), $salt_num);
+            //echo $salt_num."+".ord($raw[$i])."=".($salt_num+ord($raw[$i])).":".self::fix($salt_num+ord($raw[$i])).PHP_EOL;
+            //echo "(".chr($crypted_num).")".$crypted_num;
+            $crypted .= chr($crypted_num);
         }
+        //echo PHP_EOL;
         
         return chr($total + self::$_HEAD).$crypted;
     }
@@ -43,13 +48,16 @@ abstract class MerCrypt {
         $length_salt_string = strlen($salt_string);
         
         $total = ord($raw[0]) - self::$_HEAD;
+        //echo $total.PHP_EOL; 
         
         for ($i = 1; $i < $length; ++$i) {
-            $salt_num = $salt_string[($i - 1)%$length_salt_string] + $total;//($total*(($i-1)%10));
+            $salt_num = ord($salt_string[($i - 1)%$length_salt_string]) + ($total * ($i-1))%95;
             $a = ord($raw[$i]) - $salt_num;
+            //echo ord($raw[$i])."-".$salt_num."=".($a).":".self::fix($a).PHP_EOL;
             $a = self::fix($a);
             $decrypted .= chr($a);
         }
+        //echo PHP_EOL;
         
         return $decrypted;
     }
@@ -65,6 +73,10 @@ abstract class MerCrypt {
         if (32 <= $num) {
             return ($num - 32) % 95 + 32;
         }
-        return 127 + ($num - 32) % 96;
+        $num = 127 + ($num - 32) % 95;
+        if ($num === 127) {
+            $num = 32;
+        }
+        return $num;
     }
 }

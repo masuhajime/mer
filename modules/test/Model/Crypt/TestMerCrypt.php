@@ -11,12 +11,24 @@ class TestMerCrypt extends \PHPUnit_Framework_TestCase
         $crypt = \Mer\Model\Crypt\MerCrypt::crypt($raw, $key);
         $decrypt = \Mer\Model\Crypt\MerCrypt::decrypt($crypt, $key);
         
+        /*
+        echo PHP_EOL;
         echo "crypt:".$crypt.PHP_EOL;
         echo "decry: ".$decrypt.PHP_EOL;
-        //*/
         exit;
+        //*/
         
         $this->assertSame($raw, $decrypt);
+    }
+    
+    public function cryptRaw2()
+    {
+        return [
+            [
+                '93ys',
+                '{"name": "John Smith", "age": 33}{'
+            ],
+        ];
     }
     
     public function cryptRaw()
@@ -24,7 +36,7 @@ class TestMerCrypt extends \PHPUnit_Framework_TestCase
         return [
             [
                 '#98h!Po;93ys',
-                'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa{"name": "John Smith", "age": 34}{"name": "John Smith", "age": 33}'
+                'aaaaaaaaaaaaaaaaaaaaaaaaaaa{"name": "Matt Smith", "age": 34}'
             ],
             [
                 '#98h!Po;93ys',
