@@ -1,5 +1,17 @@
 <?php
 
+// Adaptation for the App Engine PHP runtime
+// Add the gethostname function if it does not exist
+if (!function_exists('gethostname')) {
+    function gethostname() {
+        return php_uname('n');
+    }
+}
+
+if (!function_exists('curl_init')) {
+    require_once __DIR__.'/../../vendor/azayarni/purl/src/Purl.php';
+}
+
 /*
 |--------------------------------------------------------------------------
 | Create The Application
@@ -28,7 +40,7 @@ $env = $app->detectEnvironment(function() {
     if (getenv('MER_ENV')) {
         return getenv('MER_ENV');
     } else {
-        return 'local'; // Default
+        return 'gae';
     }
 });
 

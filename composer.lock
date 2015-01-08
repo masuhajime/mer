@@ -4,8 +4,43 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "50cb79873dc8556cb30209a515421ac9",
+    "hash": "e596322804600b52157c2ed00280ee82",
     "packages": [
+        {
+            "name": "azayarni/purl",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/masuhajime/purl.git",
+                "reference": "5dcf0ec0ae081cb18eda048a05494fd583d1ea55"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/masuhajime/purl/zipball/5dcf0ec0ae081cb18eda048a05494fd583d1ea55",
+                "reference": "5dcf0ec0ae081cb18eda048a05494fd583d1ea55",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "description": "Simple cUrl PHP replacement library for hostings, which are not supporting native cUrl like Google App Engine",
+            "homepage": "https://github.com/masuhajime/purl",
+            "keywords": [
+                "curl",
+                "google app engine",
+                "php"
+            ],
+            "support": {
+                "source": "https://github.com/masuhajime/purl/tree/master"
+            },
+            "time": "2015-01-07 08:14:35"
+        },
         {
             "name": "classpreloader/classpreloader",
             "version": "1.0.2",
@@ -352,16 +387,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.11.0",
+            "version": "1.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "ec3961874c43840e96da3a8a1ed20d8c73d7e5aa"
+                "reference": "1fbe8c2641f2b163addf49cc5e18f144bec6b19f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/ec3961874c43840e96da3a8a1ed20d8c73d7e5aa",
-                "reference": "ec3961874c43840e96da3a8a1ed20d8c73d7e5aa",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/1fbe8c2641f2b163addf49cc5e18f144bec6b19f",
+                "reference": "1fbe8c2641f2b163addf49cc5e18f144bec6b19f",
                 "shasum": ""
             },
             "require": {
@@ -375,7 +410,7 @@
                 "aws/aws-sdk-php": "~2.4, >2.4.8",
                 "doctrine/couchdb": "~1.0@dev",
                 "graylog2/gelf-php": "~1.0",
-                "phpunit/phpunit": "~3.7.0",
+                "phpunit/phpunit": "~4.0",
                 "raven/raven": "~0.5",
                 "ruflin/elastica": "0.90.*",
                 "videlalvaro/php-amqplib": "~2.4"
@@ -394,7 +429,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.11.x-dev"
+                    "dev-master": "1.12.x-dev"
                 }
             },
             "autoload": {
@@ -420,7 +455,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2014-09-30 13:30:58"
+            "time": "2014-12-29 21:29:35"
         },
         {
             "name": "nesbot/carbon",
@@ -512,6 +547,59 @@
                 "php"
             ],
             "time": "2014-07-23 18:24:17"
+        },
+        {
+            "name": "parse/php-sdk",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ParsePlatform/parse-php-sdk.git",
+                "reference": "7ddeede84a7e3e4c9622860db6ead53e7b9cf102"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ParsePlatform/parse-php-sdk/zipball/7ddeede84a7e3e4c9622860db6ead53e7b9cf102",
+                "reference": "7ddeede84a7e3e4c9622860db6ead53e7b9cf102",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpdocumentor/phpdocumentor": "~2.5",
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~1.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Parse\\": "src/Parse/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Parse Platform License"
+            ],
+            "authors": [
+                {
+                    "name": "Parse",
+                    "homepage": "https://github.com/parseplatform/parse-php-sdk/contributors"
+                }
+            ],
+            "description": "Parse PHP SDK",
+            "homepage": "https://github.com/parseplatform/parse-php-sdk",
+            "keywords": [
+                "parse",
+                "sdk"
+            ],
+            "time": "2014-11-17 21:17:55"
         },
         {
             "name": "patchwork/utf8",
@@ -754,6 +842,47 @@
                 "psr-3"
             ],
             "time": "2012-12-21 11:40:51"
+        },
+        {
+            "name": "shpasser/gae-support",
+            "version": "1.0.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/shpasser/GaeSupport.git",
+                "reference": "09945108d1c0bbf15fc5bc9ed76bea465fd9a849"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/shpasser/GaeSupport/zipball/09945108d1c0bbf15fc5bc9ed76bea465fd9a849",
+                "reference": "09945108d1c0bbf15fc5bc9ed76bea465fd9a849",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "4.2.*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "illuminate/console": "4.2.*",
+                "phpunit/phpunit": "~4.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Shpasser\\GaeSupport": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ron Shpasser",
+                    "email": "shpasser@gmail.com"
+                }
+            ],
+            "description": "Google App Engine Support for Laravel apps.",
+            "time": "2014-12-20 20:58:40"
         },
         {
             "name": "stack/builder",
@@ -1687,7 +1816,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "azayarni/purl": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

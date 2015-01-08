@@ -4,8 +4,9 @@ class Record extends \Controller {
 
     public function update($app_name, $ranking_name)
     {
-        $uuid = \Input::get('uuid');
-        $score = \Input::get('score');
+        $data = \Input::get('data');
+        $uuid = "a";
+        $score = 0;
         try {
         \Mer\Service\Record::update($app_name, $ranking_name, $uuid, $score);
         } catch (\Exception $e) {

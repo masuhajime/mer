@@ -21,14 +21,16 @@ class TestMerCrypt extends \PHPUnit_Framework_TestCase
         $this->assertSame($raw, $decrypt);
     }
     
-    public function cryptRaw2()
+    /**
+     * @test
+     * @expectedException RuntimeException
+     */
+    public function MerCryptでCheckSumのエラーが出る()
     {
-        return [
-            [
-                '93ys',
-                '{"name": "John Smith", "age": 33}{'
-            ],
-        ];
+        $key = '#98h!Po;93ys';
+        //$raw = '/%JX8_>lGT]S\z@N.U4b=JSIRp6D>k7X?Diwf\'w:-T>@5>R<^\'@Po=ydWJf]P'; // 正しいcrypt
+        $raw = '/%JX8_>lGT]S\z@N.U4b=JSIRp6D>k7X?Diwf\'w:-T>@5>R<^\'@Po=ydWJf]Q';
+        \Mer\Model\Crypt\MerCrypt::decrypt($raw, $key);
     }
     
     public function cryptRaw()

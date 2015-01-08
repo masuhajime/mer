@@ -78,7 +78,7 @@ return array(
 	|
 	*/
 
-	'key' => 'YourSecretKey!!!',
+	'key' => 'YourSecretKey!!!a',
 
 	'cipher' => MCRYPT_RIJNDAEL_128,
 
@@ -119,9 +119,9 @@ return array(
 		'Illuminate\Session\SessionServiceProvider',
 		'Illuminate\Translation\TranslationServiceProvider',
 		'Illuminate\Validation\ValidationServiceProvider',
-		'Illuminate\View\ViewServiceProvider',
+		//'Illuminate\View\ViewServiceProvider', // on local
+        //'Mer\ServiceProvider\GAEViewServiceProvider', // on gae
 		'Illuminate\Workbench\WorkbenchServiceProvider',
-
 	),
 
 	/*

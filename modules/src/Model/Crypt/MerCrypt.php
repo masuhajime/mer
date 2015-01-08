@@ -1,7 +1,7 @@
 <?php namespace Mer\Model\Crypt;
 
 // どうすればよかったんかねえ・・・
-// openssl crypt使いたかったが記号は居るし
+// openssl crypt使いたかったが記号はいるし
 
 abstract class MerCrypt {
     
@@ -15,12 +15,7 @@ abstract class MerCrypt {
         $length = strlen($raw);
         $length_salt_string = strlen($salt_string);
         
-        $total = 0;
-        for ($i = 0; $i < $length; ++$i) {
-            $total += ($i+1) * ord($raw[$i]);
-        }
-        $total = ($total % (self::$_DIFF + 1));
-       //echo $total.PHP_EOL; 
+        $total = self::getSum($raw);
         
         for ($i = 0; $i < $length; ++$i) {
             $salt_num = ord($salt_string[($i%$length_salt_string)]) + ($total * $i)%95;
@@ -59,6 +54,11 @@ abstract class MerCrypt {
         }
         //echo PHP_EOL;
         
+        // check
+        if ($total !== self::getSum($decrypted)) {
+            throw new \RuntimeException("checksum not equal");
+        }
+        
         return $decrypted;
     }
     
@@ -66,6 +66,16 @@ abstract class MerCrypt {
     {
         $num = $char_num - $salt_num;
         return self::fix($num);
+    }
+    
+    private static function getSum($raw)
+    {
+        $length = strlen($raw);
+        $total = 0;
+        for ($i = 0; $i < $length; ++$i) {
+            $total += ($i+1) * ord($raw[$i]);
+        }
+        return ($total % (self::$_DIFF + 1));
     }
     
     private static function fix($num)

@@ -2,8 +2,16 @@
     "require-dev": {
         "way/generators": "~2.0"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/masuhajime/purl"
+        }
+    ],
 	"require": {
-		"laravel/framework": "4.2.*"
+		"laravel/framework": "4.2.*",
+        "parse/php-sdk" : "1.0.*",
+        "azayarni/purl": "dev-master"
 	},
     "autoload": {
         "psr-4": {
