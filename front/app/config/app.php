@@ -119,8 +119,8 @@ return array(
 		'Illuminate\Session\SessionServiceProvider',
 		'Illuminate\Translation\TranslationServiceProvider',
 		'Illuminate\Validation\ValidationServiceProvider',
-		//'Illuminate\View\ViewServiceProvider', // on local
-        //'Mer\ServiceProvider\GAEViewServiceProvider', // on gae
+		//'Illuminate\View\ViewServiceProvider',
+        'Mer\ServiceProvider\GAEViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 	),
 

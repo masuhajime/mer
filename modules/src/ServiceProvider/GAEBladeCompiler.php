@@ -17,15 +17,15 @@ class GAEBladeCompiler extends \Illuminate\View\Compilers\BladeCompiler
 			$this->setPath($path);
 		}
 
-		$contents = $this->compileString($this->files->get($path));
-
         // GAEではtemplateを更新しないため
-        /*
-		if ( ! is_null($this->cachePath))
-		{
-			$this->files->put($this->getCompiledPath($this->getPath()), $contents);
-		}
-        */
+        if ('local' === \App::environment()) {
+            $contents = $this->compileString($this->files->get($path));
+        
+            if ( ! is_null($this->cachePath))
+            {
+                $this->files->put($this->getCompiledPath($this->getPath()), $contents);
+            }
+        }
 	}
 
     
